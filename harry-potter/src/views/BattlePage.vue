@@ -12,6 +12,7 @@
         <img src="../../public/Harry_Potter.png" alt="">
     </div>
   </div>
+
 </div>
 
 </template>
