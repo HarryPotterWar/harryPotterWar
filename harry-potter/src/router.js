@@ -21,8 +21,9 @@ export default new Router({
       component: CreateRoom
     },
     {
-      path: '/battle',
+      path: '/battle/:id',
       name: 'battle',
+      props: true,
       component: BattlePage
     }
   ]

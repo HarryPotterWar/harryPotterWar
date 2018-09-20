@@ -1,16 +1,26 @@
 <template>
-  <div class="card" v-if="hero.role">
+  <div class="card" v-if="hero.role" @click="goToWaitingRoom">
    <h2>Name : <br>{{hero.name}} <br></h2>
    <h2>House :<br>{{hero.house || "None"}}</h2>
    <h2>Role :<br>{{hero.role || "None"}}</h2>
-
   </div>
 </template>
 
 <script>
+import database from '../assets/config.js'
+
 export default {
   name: 'HeroCard',
-  props: ['hero']
+  props: ['hero', 'roomId'],
+  methods: {
+    goToWaitingRoom () {
+      database.ref('/' + this.roomId + '/player1').set({
+        name: this.hero.name,
+        health: 100
+      })
+      this.$emit('wait-room')
+    }
+  }
 }
 </script>
 

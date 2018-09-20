@@ -6,6 +6,7 @@
 
 <script>
 import database from './assets/config'
+
 export default {
   computed: {
     rooms () {
