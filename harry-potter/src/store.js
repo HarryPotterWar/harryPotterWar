@@ -8,7 +8,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     heroes: [],
-    spells: []
+    spells: [],
+    rooms: []
   },
   mutations: {
     getHero (state, data) {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
     },
     getSpell (state, data) {
       state.spells = data.splice(0, 10)
+    },
+    setRooms (state, payload) {
+      state.rooms = payload
     }
   },
   actions: {
@@ -48,14 +52,7 @@ export default new Vuex.Store({
         .catch(err => {
           console.log(err)
         })
-    rooms: []
-  },
-  mutations: {
-    setRooms (state, payload) {
-      state.rooms = payload
-    }
-  },
-  actions: {
+    },
     getRooms (context) {
       let rooms = []
 
