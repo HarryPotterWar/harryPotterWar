@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Create Game</h1>
+    <h1 @click="createRoom">Create Game</h1>
   </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  methods: {
+    createRoom () {
+      this.$router.push('/create')
+    }
   }
 }
 </script>
@@ -35,5 +40,6 @@ body {
 }
 h1 {
   color: white;
+  cursor: pointer;
 }
 </style>
