@@ -26,7 +26,9 @@ export default new Vuex.Store({
       })
         .then(response => {
           console.log(response)
-          context.commit('getHero', response.data)
+          const arr = response.data
+          arr.push({ name: 'Helmi Potter', house: 'Hacktiv8', role: 'King of Wizzard' })
+          context.commit('getHero', arr)
         })
         .catch(err => {
           console.log(err)
