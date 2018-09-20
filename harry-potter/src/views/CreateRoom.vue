@@ -2,9 +2,9 @@
   <div class="create">
     <div class="container">
       <h1>Create A Room</h1>
-      <input type="text" placeholder="room name">
+      <input type="text" placeholder="room name" v-model="roomId">
       <div class="container-hero">
-        <hero-card v-for="(hero,index) in heroes" :key="index" :hero="hero"></hero-card>
+        <hero-card v-for="(hero,index) in heroes" :key="index" :hero="hero" @wait-room="goToWaitingRoom" :roomId="roomId"></hero-card>
       </div>
     </div>
   </div>
@@ -21,12 +21,14 @@ export default {
   name: 'home',
   data () {
     return {
-      hero: {}
+      hero: {},
+      roomId: ''
     }
   },
   created () {
     this.$store.dispatch('fetchHero')
     this.$store.dispatch('fetchSpell')
+    this.$store.dispatch('getRooms')
   },
   computed: {
     heroes () {
@@ -34,6 +36,11 @@ export default {
     },
     spells () {
       return this.$store.state.spells
+    }
+  },
+  methods: {
+    goToWaitingRoom () {
+      this.$router.push(`/battle/${this.roomId}`)
     }
   }
 }
@@ -76,6 +83,7 @@ h1 {
   text-align: center;
 }
 .container-hero {
+  cursor: pointer;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 50px;

@@ -4,6 +4,22 @@ import axios from 'axios'
 import database from './assets/config'
 
 Vue.use(Vuex)
+// let rooms = []
+
+// database.ref('/').on('value', (snapshot) => {
+//   for (let room in snapshot.val()) {
+//     let obj = {
+//       roomName: '',
+//       players: []
+//     }
+
+//     obj.roomName = room
+//     obj.players.push(snapshot.val()[room])
+
+//     rooms.push(obj)
+//   }
+//   // context.commit('setRooms', rooms)
+// })
 
 export default new Vuex.Store({
   state: {
@@ -55,20 +71,21 @@ export default new Vuex.Store({
     },
     getRooms (context) {
       let rooms = []
-
-      database.ref('/').on('value', (snapshot) => {      
+      database.ref('/').on('value', snapshot => {
+        rooms = []
         for (let room in snapshot.val()) {
           let obj = {
             roomName: '',
             players: []
           }
-          
+
           obj.roomName = room
-          obj.players.push(snapshot.val()[room])
-          
+          obj.players.push(snapshot.val()[room].player1)
+          if (snapshot.val()[room].player2 !== undefined) {
+            obj.players.push(snapshot.val()[room].player2)
+          }
           rooms.push(obj)
         }
-        
         context.commit('setRooms', rooms)
       })
     }
