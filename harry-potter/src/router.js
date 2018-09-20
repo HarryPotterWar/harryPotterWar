@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import CreateRoom from './views/CreateRoom.vue'
 
 Vue.use(Router)
 
@@ -16,7 +17,7 @@ export default new Router({
     {
       path: '/create',
       name: 'create',
-      component: Home
+      component: CreateRoom
     }
   ]
 })
