@@ -56,19 +56,19 @@ export default new Vuex.Store({
     getRooms (context) {
       let rooms = []
 
-      database.ref('/').on('value', (snapshot) => {      
+      database.ref('/').on('value', (snapshot) => {
         for (let room in snapshot.val()) {
           let obj = {
             roomName: '',
             players: []
           }
-          
+
           obj.roomName = room
           obj.players.push(snapshot.val()[room])
-          
+
           rooms.push(obj)
         }
-        
+
         context.commit('setRooms', rooms)
       })
     }
