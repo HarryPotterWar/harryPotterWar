@@ -4,6 +4,20 @@
   </div>
 </template>
 
+<script>
+import database from './assets/config'
+export default {
+  computed: {
+    rooms () {
+      return this.$store.state.rooms
+    }
+  },
+  created () {
+    this.$store.dispatch('getRooms')
+  }
+}
+</script>
+
 <style>
 #app {
   padding: 0;
