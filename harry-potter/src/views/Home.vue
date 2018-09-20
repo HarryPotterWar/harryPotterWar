@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Create Game</h1>
   </div>
 </template>
 
@@ -16,3 +15,25 @@ export default {
   }
 }
 </script>
+
+<style>
+html {
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato';
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+.home {
+  margin-top: -20px;
+  background-image: url('../../public/harrypotterhome.jpg');
+  width: 100%;
+  height: 800px;
+  background-size: cover;
+}
+h1 {
+  color: white;
+}
+</style>
