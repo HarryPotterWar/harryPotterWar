@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import database from './assets/config'
 
 Vue.use(Vuex)
 
@@ -47,6 +48,32 @@ export default new Vuex.Store({
         .catch(err => {
           console.log(err)
         })
+    rooms: []
+  },
+  mutations: {
+    setRooms (state, payload) {
+      state.rooms = payload
+    }
+  },
+  actions: {
+    getRooms (context) {
+      let rooms = []
+
+      database.ref('/').on('value', (snapshot) => {      
+        for (let room in snapshot.val()) {
+          let obj = {
+            roomName: '',
+            players: []
+          }
+          
+          obj.roomName = room
+          obj.players.push(snapshot.val()[room])
+          
+          rooms.push(obj)
+        }
+        
+        context.commit('setRooms', rooms)
+      })
     }
   }
 })
