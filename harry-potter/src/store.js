@@ -6,11 +6,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    heroes: []
+    heroes: [],
+    spells: []
   },
   mutations: {
     getHero (state, data) {
       state.heroes = data
+    },
+    getSpell (state, data) {
+      state.spells = data.splice(0, 10)
     }
   },
   actions: {
@@ -23,6 +27,20 @@ export default new Vuex.Store({
         .then(response => {
           console.log(response)
           context.commit('getHero', response.data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    fetchSpell (context) {
+      axios({
+        method: 'GET',
+        url: `https://www.potterapi.com/v1/spells/?key=$2a$10$xteVTxc8b6noNHXykDSZI.Fw55fMF.EevVd.JbIZoEapcvhrrRTca
+      `
+      })
+        .then(response => {
+          console.log(response)
+          context.commit('getSpell', response.data)
         })
         .catch(err => {
           console.log(err)

@@ -26,10 +26,14 @@ export default {
   },
   created () {
     this.$store.dispatch('fetchHero')
+    this.$store.dispatch('fetchSpell')
   },
   computed: {
     heroes () {
       return this.$store.state.heroes
+    },
+    spells () {
+      return this.$store.state.spells
     }
   }
 }
