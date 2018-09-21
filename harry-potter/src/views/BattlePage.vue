@@ -5,12 +5,12 @@
     <div>
       <h3>{{heroname1}}</h3>
       <div class="box1" :style="{width : room.players[0].health+'%'}"></div>
-      <img src="../../public/helmypotter.png" alt="">
+      <img src="../assets/helmypotter.png" alt="">
     </div>
     <div>
       <h3>{{heroname2}}</h3>
       <div class="box2" :style="{width : room.players[1].health+'%'}"></div>
-        <img src="../../public/Harry_Potter.png" alt="">
+        <img src="../assets/Harry_Potter.png" alt="">
     </div>
   </div>
 
