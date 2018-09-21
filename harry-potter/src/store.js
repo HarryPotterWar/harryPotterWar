@@ -18,30 +18,30 @@ export default new Vuex.Store({
 
       for (let i = 0; i < arr.length; i++) {
         if (i === 0) {
-          arr[i]['url'] = '../assets/sirius.png'
+          arr[i]['url'] = 'https://storage.googleapis.com/harrypottergame/sirius.png'
         } else if (i === 1) {
-          arr[i]['url'] = `../assets/Ameliabones copy.png`
+          arr[i]['url'] = `https://storage.googleapis.com/harrypottergame/Ameliabones%20copy.png`
         } else if (i === 2) {
-          arr[i]['url'] = '../assets/fleur_delacour_007_by_bluerosegoddess-d4jduvj.png'
+          arr[i]['url'] = 'https://storage.googleapis.com/harrypottergame/fleur_delacour_007_by_bluerosegoddess-d4jduvj.png'
         } else if (i === 3) {
-          arr[i]['url'] = '../assets/dedalus.jpg'
+          arr[i]['url'] = 'https://storage.googleapis.com/harrypottergame/dedalus.jpg'
         } else if (i === 4) {
-          arr[i]['url'] = '../assets/elphias.png'
+          arr[i]['url'] = 'https://storage.googleapis.com/harrypottergame/elphias.png'
         } else if (i === 5) {
-          arr[i]['url'] = '../assets/albert.png'
+          arr[i]['url'] = 'https://storage.googleapis.com/harrypottergame/albert.png'
         } else if (i === 6) {
-          arr[i]['url'] = '../assets/albus.png'
+          arr[i]['url'] = 'https://storage.googleapis.com/harrypottergame/albus.png'
         } else if (i === 7) {
-          arr[i]['url'] = '../assets/Figg.png'
+          arr[i]['url'] = 'https://storage.googleapis.com/harrypottergame/Figg.png'
         } else if (i === 8) {
-          arr[i]['url'] = '../assets/Mundungus copy.png'
+          arr[i]['url'] = 'https://storage.googleapis.com/harrypottergame/Mundungus copy.png'
         } else if (i === 9) {
-          arr[i]['url'] = '../assets/Hermione.jpg'
+          arr[i]['url'] = 'https://storage.googleapis.com/harrypottergame/Hermione.pn'
         }
       }
 
-      arr.push({ name: 'Helmi Potter', house: 'Hacktiv8', role: 'King of Wizzard', url: '../assets/helmypotter.png' })
-      arr.push({ name: 'Ismail Dumbledore', house: 'Hacktiv8', role: 'Arabian Wizzard', url: '../assets/ismavil.png' })
+      arr.push({ name: 'Helmi Potter', house: 'Hacktiv8', role: 'King of Wizzard', url: 'https://storage.googleapis.com/harrypottergame/helmypotter.png' })
+      arr.push({ name: 'Ismail Dumbledore', house: 'Hacktiv8', role: 'Arabian Wizzard', url: 'https://storage.googleapis.com/harrypottergame/ismail.png' })
 
       state.heroes = arr
       console.log(arr)

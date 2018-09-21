@@ -16,6 +16,7 @@ export default {
     goToWaitingRoom () {
       database.ref('/' + this.roomId + '/player1').set({
         name: this.hero.name,
+        url: this.hero.url,
         health: 100
       })
       this.$emit('wait-room')

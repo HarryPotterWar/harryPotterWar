@@ -14,13 +14,24 @@ export default {
   props: ['hero'],
   methods: {
     goToWaitingRoom () {
-      database.ref('/' + this.roomId + '/player1').set({
+      database.ref('/' + this.roomId + '/player2').set({
         name: this.hero.name,
+        url: this.hero.url,
         health: 100
       })
     },
     pickHero () {
-      this.$emit('picking-hero', this.hero.name)
+      console.log(this.hero)
+      const obj = {
+        name: this.hero.name,
+        url: this.hero.url
+      }
+      this.$emit('picking-hero', obj)
+      // database.ref('/' + this.roomId + '/player2').set({
+      //   name: this.hero.name,
+      //   url: this.hero.url,
+      //   health: 100
+      // })
     }
   }
 }
