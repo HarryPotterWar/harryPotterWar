@@ -13,7 +13,10 @@ export default new Vuex.Store({
   },
   mutations: {
     getHero (state, data) {
-      state.heroes = data
+      let arr = data.splice(0, 10)
+      console.log(arr, '======')
+      arr.push({ name: 'Helmi Potter', house: 'Hacktiv8', role: 'King of Wizzard', url: '../../public/helmypotter.png' })
+      state.heroes = arr
     },
     getSpell (state, data) {
       state.spells = data.splice(0, 10)
@@ -32,7 +35,6 @@ export default new Vuex.Store({
         .then(response => {
           console.log(response)
           const arr = response.data
-          arr.push({ name: 'Helmi Potter', house: 'Hacktiv8', role: 'King of Wizzard' })
           context.commit('getHero', arr)
         })
         .catch(err => {
