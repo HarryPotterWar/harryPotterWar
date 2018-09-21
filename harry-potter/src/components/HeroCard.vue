@@ -20,10 +20,14 @@ export default {
       })
       this.$emit('wait-room')
 <<<<<<< HEAD
+<<<<<<< HEAD
       localStorage.setItem('player', true)
 =======
       localStorage.setItem('player1', true)
 >>>>>>> player two - skill
+=======
+      localStorage.setItem('player', true)
+>>>>>>> done
     }
   }
 }
