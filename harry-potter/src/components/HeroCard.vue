@@ -19,6 +19,7 @@ export default {
         health: 100
       })
       this.$emit('wait-room')
+      localStorage.setItem('player', true)
     }
   }
 }
