@@ -115,11 +115,7 @@ export default {
       self.statusSpell1 = false
       setTimeout(function () {
         self.statusSpell1 = true
-<<<<<<< HEAD
       }, 5000)
-=======
-      }, 10000)
->>>>>>> done
       if (self.room.players[0].health > 0) {
         database.ref('/' + self.room.roomName + '/player1').set({
           name: self.room.players[0].name,
@@ -212,10 +208,6 @@ export default {
       } 
       //Player 2
      if (player == undefined || player == null) {
-<<<<<<< HEAD
-=======
-       console.log('masuks')
->>>>>>> done
 
         if (self.room.players[0].health > 0) {
           console.log('masuk sini')
