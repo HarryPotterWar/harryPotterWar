@@ -16,7 +16,8 @@ export default {
   methods: {
     joinRoom () {
       database.ref('/' + this.room.roomName + '/player2').set({
-        name: this.heroName,
+        name: this.heroName.name,
+        url: this.heroName.url,
         health: 100
       })
       this.$router.push(`/battle/${this.room.roomName}`)

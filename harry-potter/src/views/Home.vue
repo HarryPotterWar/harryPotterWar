@@ -23,6 +23,11 @@ export default {
     joinGame () {
       this.$router.push('/rooms')
     }
+  },
+  created () {
+    this.$store.dispatch('fetchHero')
+    this.$store.dispatch('fetchSpell')
+    this.$store.dispatch('getRooms')
   }
 }
 </script>
