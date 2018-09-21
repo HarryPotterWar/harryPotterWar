@@ -210,8 +210,6 @@ export default {
      if (player == undefined || player == null) {
 
         if (self.room.players[0].health > 0) {
-          console.log('masuk sini')
-
           if (e.keyCode === 32) {
 
             self.position2 -= 50
@@ -220,7 +218,6 @@ export default {
             }, 100)
 
             if (self.room.players[0].health > 0) {
-              console.log('test kurang nyawa')
               database.ref('/' + self.room.roomName + '/player1').set({
                 name: self.room.players[0].name,
                 health: self.room.players[0].health - 2
