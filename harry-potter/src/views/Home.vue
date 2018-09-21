@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <h1 @click="createRoom">Create Game</h1>
+    <div class="menu">
+      <h1 @click="createRoom">Create Game</h1>
+      <h1 @click="joinGame">Join Game</h1>
+    </div>
   </div>
 </template>
 
@@ -16,6 +19,9 @@ export default {
   methods: {
     createRoom () {
       this.$router.push('/create')
+    },
+    joinGame () {
+      this.$router.push('/rooms')
     }
   }
 }
@@ -35,11 +41,17 @@ body {
   margin-top: -20px;
   background-image: url('../../public/harrypotterhome.jpg');
   width: 100%;
-  height: 800px;
+  min-height: 900px;
   background-size: cover;
 }
 h1 {
   color: white;
   cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.menu {
+  padding-top: 45%;
 }
 </style>
