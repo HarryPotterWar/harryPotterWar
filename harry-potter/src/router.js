@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import CreateRoom from './views/CreateRoom.vue'
 import BattlePage from './views/BattlePage.vue'
+import ViewRooms from './views/ViewRooms.vue'
 
 Vue.use(Router)
 
@@ -25,6 +26,12 @@ export default new Router({
       name: 'battle',
       props: true,
       component: BattlePage
+    },
+    {
+      path: '/rooms',
+      name: 'rooms',
+      props: true,
+      component: ViewRooms
     }
   ]
 })
