@@ -7,20 +7,12 @@
   <div class="battle" v-else>
     <div>
       <h3>{{heroname1}}</h3>
-<<<<<<< HEAD
       <div class="box1" :style="{width : room.players[0].health+'%'}"></div><button v-if="statusSpell1" @click="spell1">Spell</button>
-=======
-      <div class="box1" :style="{width : room.players[0].health+'%'}"></div><button v-if="statusSpell1" @click="spell">Spell</button>
->>>>>>>  player one - spell
           <img class="player1" src="../../public/Doctor_Strange_Render.png" alt="" v-bind:style="{ marginLeft: position1 + '%' }">
     </div>
     <div>
       <h3>{{heroname2}}</h3>
-<<<<<<< HEAD
       <div class="box2" :style="{width : room.players[1].health+'%'}"></div><button v-if="statusSpell2" @click="spell2">Spell</button>
-=======
-      <div class="box2" :style="{width : room.players[1].health+'%'}"></div><button v-if="statusSpell2">Spell</button>
->>>>>>>  player one - spell
         <img class="player2" src="../../public/Harry_Potter.png" alt="" v-bind:style="{ marginLeft: position2 + '%' }">
     </div>
   </div>
@@ -33,18 +25,9 @@
 import database from '@/assets/config.js'
 import swal from 'sweetalert2'
 
-<<<<<<< HEAD
 const leftHook = 'http://soundbible.com/mp3/Left Hook-SoundBible.com-516660386.mp3'
 const rightHook = 'http://soundbible.com/mp3/Right%20Hook-SoundBible.com-1406389182.mp3'
-=======
-// const sound = 'https://goo.gl/PBXQUX'
-const leftHook = 'http://soundbible.com/mp3/Left Hook-SoundBible.com-516660386.mp3'
-const rightHook = 'http://soundbible.com/mp3/Right%20Hook-SoundBible.com-1406389182.mp3'
-<<<<<<< HEAD
-const spell = 'https://goo.gl/1LTZ4X'
->>>>>>>  player one - spell
-=======
->>>>>>> player two - skill
+
 
 export default {
   data () {
@@ -72,11 +55,7 @@ export default {
     }
   },
   methods: {
-<<<<<<< HEAD
     spell1 () {
-=======
-    spell () {
->>>>>>>  player one - spell
       let self = this
       self.position1 += 50
       setTimeout(function () {
@@ -88,7 +67,6 @@ export default {
       }, 500)
       var audio = new Audio(leftHook)
       audio.play()
-<<<<<<< HEAD
       self.statusSpell1 = false
       self.statusSpell2 = false
       setTimeout(function () {
@@ -98,17 +76,6 @@ export default {
         database.ref('/' + self.room.roomName + '/player2').set({
           name: self.room.players[1].name,
           health: self.room.players[1].health - 20
-=======
-      // self.statusSpell1 = false
-      self.statusSpell2 = false
-      setTimeout(function () {
-        self.statusSpell2 = true
-      }, 10000)
-      if (self.room.players[1].health > 0) {
-        database.ref('/' + self.room.roomName + '/player2').set({
-          name: self.room.players[1].name,
-          health: self.room.players[1].health - 30
->>>>>>>  player one - spell
         }, function (err) {
           if (err) {
             console.log(err)
@@ -123,7 +90,6 @@ export default {
           text: 'Lets play again!',
           icon: 'success',
           button: 'Yeay!'
-<<<<<<< HEAD
         })
           .then(val => {
             if (val) {
@@ -173,12 +139,6 @@ export default {
             if (val) {
              self.$router.push('/')
               localStorage.clear()
-=======
-        })
-          .then(val => {
-            if (val) {
-              window.location = 'http://localhost:8081/'
->>>>>>>  player one - spell
             }
           })
       }
@@ -187,8 +147,6 @@ export default {
   mounted () {
     let self = this
     window.addEventListener('keypress', function (e) {
-<<<<<<< HEAD
-<<<<<<< HEAD
       let player = localStorage.getItem('player')
       //Player 1
       if (player) {
@@ -231,25 +189,7 @@ export default {
                     self.$router.push('/')
                   }
                 })
-=======
-      if (e.keyCode === 32) {
-        self.position1 += 50
-        setTimeout(function () {
-          self.position1 -= 50
-        }, 100)
-        if (self.room.players[1].health > 0) {
-          database.ref('/' + self.room.roomName + '/player2').set({
-            name: self.room.players[1].name,
-            health: self.room.players[1].health - 2
-          }, function (err) {
-            if (err) {
-              console.log(err)
-            }
-          })
 
-          var audio = new Audio(rightHook)
-          audio.play()
->>>>>>>  player one - spell
         } else {
           swal({
             title: 'Player 1 win!',
@@ -259,7 +199,6 @@ export default {
           })
             .then(val => {
               if (val) {
-<<<<<<< HEAD
                 self.$router.push('/')
                 localStorage.clear()
               }
@@ -322,100 +261,6 @@ export default {
               }
             })
         }
-=======
-                window.location = 'http://localhost:8081/'
-=======
-      let player = localStorage.getItem('player1')
-      if (player) {
-        if (e.keyCode === 32) {
-          self.position1 += 50
-          setTimeout(function () {
-            self.position1 -= 50
-          }, 100)
-          if (self.room.players[1].health > 0) {
-            database.ref('/' + self.room.roomName + '/player2').set({
-              name: self.room.players[1].name,
-              health: self.room.players[1].health - 2
-            }, function (err) {
-              if (err) {
-                console.log(err)
-              }
-            })
-
-            var audio = new Audio(rightHook)
-            audio.play()
-          } else if (self.room.players[0].health == 0) {
-              swal({
-                 title: "You Lose!",
-                 text: "Lets play again!",
-                 icon: "warning",
-                 button: "Yeay!"
-              })
-                .then(val => {
-                  if (val) {
-                    window.location = 'http://localhost:8081/'
-                  }
-                })
-          } else {
-            swal({
-              title: 'Player 1 win!',
-              text: 'Lets play again!',
-              icon: 'success',
-              button: 'Yeay!'
-            })
-              .then(val => {
-                if (val) {
-                  window.location = 'http://localhost:8081/'
-                }
-              })
-          }
-        }
-      } else if (player == undefined || player == null) {
-        if (e.keyCode === 32) {
-          self.position2 -= 50
-          setTimeout(function () {
-            self.position2 += 50
-          }, 100)
-          if (self.room.players[0].health > 0) {
-            database.ref('/' + self.room.roomName + '/player1').set({
-              name: self.room.players[0].name,
-              health: self.room.players[0].health - 2
-            }, function (err) {
-              if (err) {
-                console.log(err)
->>>>>>> player two - skill
-              }
-            })
-
-            var audio = new Audio(rightHook)
-            audio.play()
-          } else if (self.room.players[1].health == 0) {
-              swal({
-                 title: "You Lose!",
-                 text: "Lets play again!",
-                 icon: "warning",
-                 button: "Yeay!"
-              })
-                .then(val => {
-                  if (val) {
-                    window.location = 'http://localhost:8081/'
-                  }
-                })
-          } else {
-            swal({
-              title: 'Player 2 win!',
-              text: 'Lets play again!',
-              icon: 'success',
-              button: 'Yeay!'
-            })
-              .then(val => {
-                if (val) {
-                  window.location = 'http://localhost:8081/'
-                }
-              })
-          }
-        }
->>>>>>>  player one - spell
       }
     })
   }

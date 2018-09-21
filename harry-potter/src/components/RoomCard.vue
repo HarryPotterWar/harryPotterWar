@@ -20,7 +20,6 @@ export default {
         health: 100
       })
       this.$router.push(`/battle/${this.room.roomName}`)
-      this.$store.state.statusPlayer = false
     }
   },
   computed: {
