@@ -19,7 +19,11 @@ export default {
         health: 100
       })
       this.$emit('wait-room')
+<<<<<<< HEAD
       localStorage.setItem('player', true)
+=======
+      localStorage.setItem('player1', true)
+>>>>>>> player two - skill
     }
   }
 }
