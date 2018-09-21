@@ -9,7 +9,8 @@ export default new Vuex.Store({
   state: {
     heroes: [],
     spells: [],
-    rooms: []
+    rooms: [],
+    statusPlayer: true
   },
   mutations: {
     getHero (state, data) {
